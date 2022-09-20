@@ -11,10 +11,14 @@ function LandingPage() {
     <>
       <div className="main-div">
         <div className="left-panel">
-          <div>Logo</div>
+          <div className="logo">Logo</div>
           <ul>
             <li style={{ color: "#2289FF" }}>
-              <Link to="/properties" style={{ textDecoration: "none" }}>
+              <Link
+                to="/properties"
+                style={{ textDecoration: "none" }}
+                className="property-link"
+              >
                 <img src={property} alt="" /> Property
               </Link>
             </li>
