@@ -1,0 +1,80 @@
+
+.login{
+    background-color: rgb(209, 241, 242);
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formcard {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    padding: 0 30px 30px 30px;
+    margin-top: 20px;
+    border: 1px solid rgb(224, 221, 221);
+    background-color: #ffff;
+    border-radius: 8px;
+    font-family: 'Open Sans'
+}
+
+label {
+    font-size: medium;
+    font-size: 25px;
+}
+
+input {
+    margin-bottom: 30px;
+    width: 380px;
+    height: 40px;
+    border-radius: 5px;
+    border: 1.5px solid rgb(228, 225, 225);
+    font-size: 15px;
+    padding-left: 12px;
+    color: rgb(3, 93, 109);
+    Fill: Solid #FFFFFF
+}
+button {
+    margin-top: 15px;
+    margin-left: 0px;
+    border: none;
+    background-color: #4C57B6;
+    border-radius: 5px;
+    width: 380px;
+    height: 40px;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(7, 223, 79);
+    color: black;
+    border: 1px solid gray;
+}
+
+
+
+.signup {
+    text-align: center;
+    margin-top: 30px;
+    color: #4C57B6;
+    font-weight: 500;
+}
+
+
+
+.logintext {
+    margin-bottom: 50px;
+    text-align: center;
+    color: #8d8b8b;
+}
+
+h1 {
+    text-align: center;
+    color: #4C57B6;
+    font-weight: 500;
+}
+
+::placeholder {
+    color: rgb(196, 194, 194);
+    opacity: 1; /* Firefox */
+  }
