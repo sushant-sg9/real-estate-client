@@ -1,0 +1,22 @@
+.main-div{
+    height:98vh;
+    display: flex;
+    background-color: #F5F5F5;
+}
+
+.left-panel{
+    height:100%;
+    width:20%;
+    background-color: #E1F9F4;
+}
+
+.left-panel>ul>li {
+    list-style: none;
+    margin: 50px 20px 30px 20px;
+}
+
+.left-panel>ul>li>img{
+    width: 30px;
+    height: 30px;
+}
+
