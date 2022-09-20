@@ -43,3 +43,55 @@
     margin-top: 25px;
 
 }
+
+.right-panel{
+    display: flex;
+    flex-direction: column;
+    width:100%
+
+}
+
+.user-header{
+    border-bottom: 1px solid #d5f8f1;
+    color:  #AAAAAA;
+
+    height: 100px;
+    display: flex;
+    align-items: center;
+
+}
+.user-name .user-img{
+    width: 20px;
+    height: 15px;
+    margin-right: 10px;
+}
+
+.user-id{
+    margin-left: 20px;
+    margin-right: 75%;
+}
+.search {
+    height: 100px;
+    display: flex;
+}
+
+.add-property-btn{
+    left: 80%;
+    right: 2.31%;
+    top: 5%;
+    bottom: 79.17%;
+    padding: 20px;
+    background: #6AB4F8;
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.13);  
+    color: #fff;
+    position: relative;
+   /* width: 100%; */
+    border-radius: 50px;
+    align-items: center;
+    padding: 30px;
+    margin:30px 
+}
+.add-property{
+    position: relative;
+    top:-8px
+}
