@@ -1,8 +1,48 @@
 .property-table{
     border: 1px solid ;
-    /* padding :10px 5px; */
+    padding :5px 5px;
+
     margin: 5px 70px 5px 40px;
     border-radius: 10px;
     background-color: white;
     border: 0px;
+}
+
+
+table {
+    padding: 10px;
+    margin: 5px 70px 5px 40px;
+    border-radius: 20px;
+    /* background-color: white; */
+    border: 0px;
+    border-collapse: separate;
+    border-spacing: 0 5px;
+  }
+  
+  th {
+    color:#284E91;
+  }
+  
+  th,
+  td {
+    
+    background-color: white;
+    width: 150px;
+    text-align: center;
+    border: 1px solid white;
+    padding: 5px;
+  }
+.table-div{
+    background-color: #AAAAAA;
+    width: 100%;
+}
+
+.status-div{
+border-radius: 10px;
+padding: 5px;
+background-color:  #F5FAF5;
+color: #416899;
+}
+.status-div:hover{
+    cursor: pointer;
 }

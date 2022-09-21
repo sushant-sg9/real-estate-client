@@ -8,16 +8,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route
-          path="/properties"
-          element={<LandingPage getProperties={true} />}
-        />
-        <Route
-          path="/add-properties"
-          element={<LandingPage getProperties={false} />}
-        />
+        <Route path="/properties" element={<LandingPage />} />
       </Routes>
     </BrowserRouter>
   );
