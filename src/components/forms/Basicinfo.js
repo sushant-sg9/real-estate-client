@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Page from "../LandingPage/landingPage";
 const Basic = (props) => {
   const navigate = useNavigate();
-  const [basicInfo, setBasicInfo] = useState({});
+  const [basicInfo, setBasicInfo] = useState([]);
 
   const handleSubmit = async (e) => {
     try {
@@ -16,11 +16,21 @@ const Basic = (props) => {
       const Duration = parseInt(Math.random() * 100);
       var ppi = PPID.toString();
       ppi = "PPID" + ppi;
-      setBasicInfo({
-        property: e.target.cars.value,
-        price: e.target.price.value
-      });
-      props.setData(basicInfo);
+
+      const basicData = [
+        {
+          property: e.target.property.value,
+          price: e.target.price.value,
+          age: e.target.price.value,
+          description: e.target.desc.value,
+          negotiable: e.target.negotiable.value,
+          owner: e.target.owner.value,
+          approval: e.target.approval.value,
+          loan: e.target.loan.value
+        }
+      ];
+      setBasicInfo([basicData]);
+      props.setData([...props.data, ...basicData]);
       props.setDetails();
     } catch (error) {
       alert("error");
@@ -35,12 +45,14 @@ const Basic = (props) => {
 
           <select
             className="input"
-            name="cars"
+            name="property"
             id="Type"
             required
-            value={props.data ? props.data.property : basicInfo.property}
+            value={
+              props.data.length ? props.data[0].property : basicInfo.property
+            }
             onChange={(e) =>
-              setBasicInfo({ ...basicInfo, property: e.target.value })
+              setBasicInfo([{ ...props.data, property: e.target.value }])
             }
           >
             <option value="" disabled selected hidden>
@@ -56,9 +68,9 @@ const Basic = (props) => {
             type="text"
             name="price"
             id="Price"
-            value={props.data ? props.data.property : basicInfo.property}
+            value={props.data.length ? props.data[0].price : basicInfo.price}
             onChange={(e) =>
-              setBasicInfo({ ...basicInfo, price: e.target.value })
+              setBasicInfo([{ ...props.data, price: e.target.value }])
             }
             placeholder="Example: 10000"
             className="input"
@@ -67,26 +79,84 @@ const Basic = (props) => {
           <input
             type="text"
             id="age"
+            name="age"
             placeholder="Select Property Age"
             className="input"
+            value={props.data.length ? props.data[0].age : basicInfo.age}
+            onChange={(e) =>
+              setBasicInfo([{ ...props.data, age: e.target.value }])
+            }
           />
           <h4>Property Description</h4>
-          <input type="text" id="desc" placeholder="" className="input" />
+          <input
+            type="text"
+            id="desc"
+            placeholder=""
+            name="description"
+            className="input"
+            value={
+              props.data.length
+                ? props.data[0].description
+                : basicInfo.description
+            }
+            onChange={(e) =>
+              setBasicInfo([{ ...props.data, description: e.target.value }])
+            }
+          />
         </div>
 
         <div className="form-container1">
           <h4>Negotiable</h4>
-          <input type="text" id="nego" placeholder="name" className="input" />
+          <input
+            type="text"
+            id="nego"
+            name="negotiable"
+            placeholder="name"
+            className="input"
+            value={
+              props.data.length
+                ? props.data[0].negotiable
+                : basicInfo.negotiable
+            }
+            onChange={(e) =>
+              setBasicInfo([{ ...props.data, negotiable: e.target.value }])
+            }
+          />
           <h4>Ownership</h4>
-          <input type="text" id="own" placeholder="name" className="input" />
+          <input
+            type="text"
+            id="own"
+            name="owner"
+            placeholder="name"
+            className="input"
+            value={props.data.length ? props.data[0].owner : basicInfo.owner}
+            onChange={(e) =>
+              setBasicInfo([{ ...props.data, owner: e.target.value }])
+            }
+          />
           <h4>Property Approved</h4>
-          <input type="text" id="approv" placeholder="name" className="input" />
+          <input
+            type="text"
+            id="approv"
+            name="approval"
+            placeholder="name"
+            className="input"
+            value={
+              props.data.length ? props.data[0].approval : basicInfo.approval
+            }
+            onChange={(e) =>
+              setBasicInfo([{ ...props.data, approval: e.target.value }])
+            }
+          />
           <h4>Bank Loan</h4>
           <input
             type="text"
             id="loan"
-            // value={loan}
-            // onChange={(e) => setLoan(e.target.value)}
+            name="loan"
+            value={props.data.length ? props.data[0].loan : basicInfo.loan}
+            onChange={(e) =>
+              setBasicInfo([{ ...props.data, loan: e.target.value }])
+            }
             placeholder="name"
             className="input"
           />

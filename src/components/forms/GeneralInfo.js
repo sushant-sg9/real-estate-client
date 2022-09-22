@@ -3,19 +3,22 @@ import "./Generalinfo.css";
 
 import { Link, useNavigate } from "react-router-dom";
 const General = (props) => {
-  const [contact, setConact] = useState("");
+  const [general, setGenInfo] = useState({});
 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    console.log(props.data);
-  });
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    console.log(e.target.elements.contact.value);
-
-    // setData({ ...data, Contact: e.target.elements.contact.value });
+    const basicData = [
+      {
+        ownerName: e.target.ownerName.value,
+        postedBy: e.target.postedBy.value,
+        featured: e.target.featured.value,
+        contact: e.target.contact.value,
+        saleType: e.target.saleType.value
+      }
+    ];
+    setGenInfo([basicData]);
+    props.setData([...props.data, ...basicData]);
     props.setLocation();
   };
 
@@ -27,12 +30,34 @@ const General = (props) => {
           <div className="form-data1">
             <div className="form-container">
               <h4>Name</h4>
-              <select className="input" name="cars">
+              <select
+                className="input"
+                name="ownerName"
+                value={
+                  props.data.length && props.data[2]
+                    ? props.data[2].ownerName
+                    : general.ownerName
+                }
+                onChange={(e) =>
+                  setGenInfo([{ ...props.data, ownerName: e.target.value }])
+                }
+              >
                 <option value="owner">owner</option>
                 <option value="saab">broker</option>
               </select>
               <h4>Posted by</h4>
-              <select className="input" name="cars">
+              <select
+                className="input"
+                name="postedBy"
+                value={
+                  props.data.length && props.data[2]
+                    ? props.data[2].postedBy
+                    : general.postedBy
+                }
+                onChange={(e) =>
+                  setGenInfo([{ ...props.data, postedBy: e.target.value }])
+                }
+              >
                 <option value="" disabled selected hidden>
                   posted by
                 </option>
@@ -40,7 +65,19 @@ const General = (props) => {
                 <option value="saab">owner</option>
               </select>
               <h4>Featured package</h4>
-              <select className="input" name="cars" placeholder="please select">
+              <select
+                className="input"
+                name="featured"
+                placeholder="please select"
+                value={
+                  props.data.length && props.data[2]
+                    ? props.data[2].featured
+                    : general.featured
+                }
+                onChange={(e) =>
+                  setGenInfo([{ ...props.data, featured: e.target.value }])
+                }
+              >
                 <option value="volvo">10L</option>
                 <option value="saab">15L</option>
                 <option value="fiat">20L</option>
@@ -54,19 +91,50 @@ const General = (props) => {
                 type="text"
                 id="contact"
                 required
-                value={contact}
-                onChange={(e) => setConact(e.target.value)}
+                name="contact"
+                value={
+                  props.data.length && props.data[2]
+                    ? props.data[2].contact
+                    : general.contact
+                }
+                onChange={(e) =>
+                  setGenInfo([{ ...props.data, contact: e.target.value }])
+                }
                 placeholder="enter your mobile number"
                 className="input"
               />
               <h4>Sale type</h4>
-              <select className="input" name="cars" placeholder="please select">
+              <select
+                className="input"
+                name="saleType"
+                placeholder="please select"
+                value={
+                  props.data.length && props.data[2]
+                    ? props.data[2].saleType
+                    : general.saleType
+                }
+                onChange={(e) =>
+                  setGenInfo([{ ...props.data, saleType: e.target.value }])
+                }
+              >
                 <option value="volvo">Installment</option>
                 <option value="saab">Emi</option>
                 <option value="fiat">single payment</option>
               </select>
               <h4>PPD package</h4>
-              <select className="input" name="cars" placeholder="please select">
+              <select
+                className="input"
+                name="ppdPackage"
+                placeholder="please select"
+                value={
+                  props.data.length && props.data[2]
+                    ? props.data[2].ppdPackage
+                    : general.ppdPackage
+                }
+                onChange={(e) =>
+                  setGenInfo([{ ...props.data, ppdPackage: e.target.value }])
+                }
+              >
                 <option value="saab">3L</option>
                 <option value="fiat">4L</option>
                 <option value="fiat">5L</option>

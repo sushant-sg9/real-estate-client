@@ -9,7 +9,7 @@ import PropertyInput from "../forms/PropertyDetails";
 import General from "../forms/GeneralInfo";
 import Location from "../forms/Location";
 function PropertiesTab(props) {
-  const [data, setDataValue] = useState({});
+  const [data, setDataValue] = useState([]);
   const [properties, setProperties] = useState({
     basic: true,
     details: false,
