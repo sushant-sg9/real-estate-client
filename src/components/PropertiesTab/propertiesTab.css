@@ -26,12 +26,13 @@
     background-color: white;
     cursor: pointer;
     color: black;
+    margin-right: 5px;
+
   }
   
    .digit1{
     background-color: #E1F9F4;
     color:#AAAAAA;
-    margin-right: 5px;
   }
   
 
