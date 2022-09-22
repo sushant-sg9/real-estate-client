@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "./Generalinfo.css";
-import Page from "../LandingPage/landingPage";
+import SideBar from "../common/Sidebar";
+import Header from "../common/Header";
 import { Link, useNavigate } from "react-router-dom";
+import Tab from "../common/Tab";
 const General = ({ user, data, setData }) => {
   const [contact, setConact] = useState("");
 
@@ -18,7 +20,11 @@ const General = ({ user, data, setData }) => {
 
   return (
     <div className="basic">
-      {/* <Page /> */}
+      <SideBar />
+      <div className="headform">
+        {/* <Header user={user} /> */}
+        <div className="rectangle"></div>
+        <Tab />
         <div className="main">
           <form action="" className="form-basic" onSubmit={handleSubmit}>
             <div className="form-data1">
@@ -41,9 +47,9 @@ const General = ({ user, data, setData }) => {
                   placeholder="please select"
                 >
                   <option value="volvo">10L</option>
-                  <option value="saab">15L</option>
-                  <option value="fiat">20L</option>
-                  <option value="audi">25L</option>
+                  <option value="saab">11L</option>
+                  <option value="fiat">21L</option>
+                  <option value="audi">31L</option>
                 </select>
               </div>
 
@@ -90,6 +96,7 @@ const General = ({ user, data, setData }) => {
           </form>
         </div>
       </div>
+    </div>
   );
 };
 export default General;
