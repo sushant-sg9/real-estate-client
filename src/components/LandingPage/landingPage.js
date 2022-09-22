@@ -12,10 +12,11 @@ import PropertiesList from "../PropertiesList/propertiesList";
 import add from "../../images/Add_plus.png";
 import { useEffect, useState } from "react";
 import SearchBar from "../SearchBar/searchBar";
+import PropertiesTab from "../PropertiesTab/propertiesTab";
 function LandingPage(props) {
   const [propertyList, setpropertyList] = useState(true);
-  const [data, setData] = useState([]);
 
+  const [data, setData] = useState([]);
   function changePropertyView() {
     setpropertyList(false);
   }
@@ -83,19 +84,19 @@ function LandingPage(props) {
               <div className="add-property-btn" onClick={changePropertyView}>
                 <div className="add-property">
                   <img src={add} />
-                  Add Property
+                  Add New Property
                 </div>
               </div>
             </div>
           ) : (
-            <div>Add property</div>
+            <div className="search">
+              <div className="add-header">
+                <div className="add-id">Add Property</div>
+              </div>
+            </div>
           )}
           <div className="properties-list">
-            {propertyList ? (
-              <PropertiesList data={data} />
-            ) : (
-              <div>Add property</div>
-            )}
+            {propertyList ? <PropertiesList data={data} /> : <PropertiesTab />}
           </div>
         </div>
       </div>

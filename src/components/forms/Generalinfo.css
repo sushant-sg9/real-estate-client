@@ -1,4 +1,4 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -50,7 +50,7 @@
     justify-content: space-evenly;
     width: 30%;
   }
-  
+   */
   h4 {
     /* padding: 1%; */
     /* border: 1px solid bisque; */

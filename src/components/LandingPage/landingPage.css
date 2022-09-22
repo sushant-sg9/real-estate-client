@@ -99,3 +99,24 @@
 .list1:hover, .add-property-btn:hover{
     cursor: pointer;
 }
+
+.add-header{
+    width: 100%;
+    color:  #7D7D7D;
+font-family: 'Source Sans Pro';
+font-style: normal;
+font-weight: 600;
+font-size: 25px;
+line-height: 31px;
+text-transform: uppercase;
+
+    display: flex;
+    align-items: center;
+
+}
+
+
+.add-id{
+    margin-left: 20px;
+    margin-right: 75%;
+}
