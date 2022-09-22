@@ -34,7 +34,7 @@ const PropertyInput = ({ user, data, setData }) => {
 
   return (
     <div className="basic">
-      <Page />
+      {/* <Page /> */}
 
         <div className="main">
           <form action="" className="form-basic" onSubmit={handleSubmit}>

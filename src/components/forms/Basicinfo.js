@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Basicinfo.css";
-
+import Tab from "./src/components/Tab/Tab.js"
 import { Link, useNavigate } from "react-router-dom";
 
 import Page from "../LandingPage/landingPage";
@@ -45,7 +45,7 @@ const Basic = ({ user, data, setData }) => {
 
   return (
     <div className="basic">
-      <Page />
+      <Tab />
       
         <div className="main">
           <form action="" className="form-basic" onSubmit={handleSubmit}>

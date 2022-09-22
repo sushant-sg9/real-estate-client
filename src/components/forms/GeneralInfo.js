@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Gernalinfo.css";
+import "./Generalinfo.css";
 import Page from "../LandingPage/landingPage";
 import { Link, useNavigate } from "react-router-dom";
 const General = ({ user, data, setData }) => {
@@ -18,7 +18,7 @@ const General = ({ user, data, setData }) => {
 
   return (
     <div className="basic">
-      <Page />
+      {/* <Page /> */}
         <div className="main">
           <form action="" className="form-basic" onSubmit={handleSubmit}>
             <div className="form-data1">
