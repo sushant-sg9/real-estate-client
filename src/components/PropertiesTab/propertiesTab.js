@@ -9,6 +9,7 @@ import PropertyInput from "../forms/PropertyDetails";
 import General from "../forms/GeneralInfo";
 import Location from "../forms/Location";
 function PropertiesTab(props) {
+  const [data, setDataValue] = useState({});
   const [properties, setProperties] = useState({
     basic: true,
     details: false,
@@ -46,6 +47,11 @@ function PropertiesTab(props) {
       general: false,
       location: true
     });
+  }
+
+  function setData(value) {
+    debugger;
+    setDataValue(value);
   }
   return (
     <>
@@ -95,10 +101,28 @@ function PropertiesTab(props) {
           </div>
         </div>
         <div>
-          {properties.basic && <Basic setBasic={setBasic} />}
-          {properties.details && <PropertyInput setDetails={setDetails} />}
-          {properties.general && <General setGeneral={setGeneral} />}
-          {properties.location && <Location setLocation={setLocation} />}
+          {properties.basic && (
+            <Basic setDetails={setDetails} setData={setData} data={data} />
+          )}
+          {properties.details && (
+            <PropertyInput
+              setBasic={setBasic}
+              setGeneral={setGeneral}
+              setData={setData}
+              data={data}
+            />
+          )}
+          {properties.general && (
+            <General
+              setDetails={setDetails}
+              setLocation={setLocation}
+              setData={setData}
+              data={data}
+            />
+          )}
+          {properties.location && (
+            <Location setGeneral={setGeneral} setData={setData} data={data} />
+          )}
         </div>
       </div>
     </>
