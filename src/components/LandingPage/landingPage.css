@@ -95,3 +95,7 @@
     position: relative;
     top:-8px
 }
+
+.list1:hover, .add-property-btn:hover{
+    cursor: pointer;
+}

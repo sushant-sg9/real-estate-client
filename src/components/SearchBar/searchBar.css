@@ -26,3 +26,7 @@
     color: #E6E6E6;
 
 }
+
+.search-icon:hover{
+    cursor: pointer;
+}

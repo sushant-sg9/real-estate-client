@@ -41,9 +41,9 @@ const General = ({ user, data, setData }) => {
                   placeholder="please select"
                 >
                   <option value="volvo">10L</option>
-                  <option value="saab">11L</option>
-                  <option value="fiat">21L</option>
-                  <option value="audi">31L</option>
+                  <option value="saab">15L</option>
+                  <option value="fiat">20L</option>
+                  <option value="audi">25L</option>
                 </select>
               </div>
 

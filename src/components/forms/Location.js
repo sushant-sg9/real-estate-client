@@ -42,9 +42,9 @@ const Location = ({ user, data }) => {
                 <input type="text" placeholder="Email" className="input" />
                 <h4>Area</h4>
                 <select className="input" placeholder="select Area">
-                  <option>Guntur</option>
-                  <option>Vijayawada</option>
-                  <option>owner</option>
+                  <option>Pune</option>
+                  <option>Mumbai</option>
+                  <option>Delhi</option>
                 </select>
                 <h4>Address</h4>
                 <input type="text" placeholder="Address" className="input" />
@@ -55,15 +55,15 @@ const Location = ({ user, data }) => {
               <div className="form-container1">
                 <h4>City</h4>
                 <select className="input" placeholder="select City">
-                  <option>Guntur</option>
-                  <option>Vijayawada</option>
-                  <option>Hyderabad</option>
+                  <option>Pune</option>
+                  <option>Mumbai</option>
+                  <option>Delhi</option>
                 </select>
                 <h4>Pincode</h4>
                 <select className="input" placeholder="please select pincode">
-                  <option>522503</option>
-                  <option>52413</option>
-                  <option>520001</option>
+                  <option>411062</option>
+                  <option>451278</option>
+                  <option>854123</option>
                 </select>
                 <h4>Landmark</h4>
                 <input type="text" placeholder="Landmark" className="input" />

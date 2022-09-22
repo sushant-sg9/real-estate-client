@@ -7,26 +7,43 @@ import view from "../../images/eye.png";
 import tarrif from "../../images/Tariff.png";
 import down from "../../images/down.png";
 import user from "../../images/User_icon.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PropertiesList from "../PropertiesList/propertiesList";
 import add from "../../images/Add_plus.png";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import SearchBar from "../SearchBar/searchBar";
 function LandingPage(props) {
+  const [propertyList, setpropertyList] = useState(true);
+  const [data, setData] = useState([]);
+
+  function changePropertyView() {
+    setpropertyList(false);
+  }
+  function setPropertyView() {
+    setpropertyList(true);
+  }
+
+  function setSearchItem(data) {
+    setData(data);
+  }
   return (
     <>
       <div className="main-div">
         <div className="left-panel">
           <div className="logo">Logo</div>
           <ul>
-            <li style={{ color: "#2289FF" }}>
-              <Link
+            <li
+              className="list1"
+              style={{ color: "#2289FF" }}
+              onClick={setPropertyView}
+            >
+              {/* <Link
                 to="/properties"
                 style={{ textDecoration: "none" }}
                 className="property-link"
-              >
-                <img src={property} alt="" /> Property
-              </Link>
+              > */}
+              <img src={property} alt="" /> Property
+              {/* </Link> */}
             </li>
 
             <li>
@@ -58,12 +75,12 @@ function LandingPage(props) {
               <img src={down} />
             </div>
           </div>
-          {props.getProperties ? (
+          {propertyList ? (
             <div className="search">
               <div className="search-input-id">
-                <SearchBar />
+                <SearchBar setSearchItem={setSearchItem} />
               </div>
-              <div className="add-property-btn">
+              <div className="add-property-btn" onClick={changePropertyView}>
                 <div className="add-property">
                   <img src={add} />
                   Add Property
@@ -74,7 +91,11 @@ function LandingPage(props) {
             <div>Add property</div>
           )}
           <div className="properties-list">
-            {props.getProperties ? <PropertiesList /> : <div>Add property</div>}
+            {propertyList ? (
+              <PropertiesList data={data} />
+            ) : (
+              <div>Add property</div>
+            )}
           </div>
         </div>
       </div>
