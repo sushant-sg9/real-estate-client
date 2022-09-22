@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import "./Basicinfo.css";
-import Header from "../common/Header";
-import SideBar from "../common/Sidebar";
-import Tab from "../common/Tab";
 // import Tab from "./src/components/Tab/Tab.js"
 import { Link, useNavigate } from "react-router-dom";
 
@@ -46,12 +43,7 @@ const Basic = ({ user, data, setData }) => {
   };
 
   return (
-    <div className="basic">
-      <SideBar />
-      <div className="headform">
-        {/* <Header  /> */}
-        <div className="rectangle"></div>
-        <Tab />
+    
         <div className="main">
           <form action="" className="form-basic" onSubmit={handleSubmit}>
             <div className="form-data1">
@@ -154,8 +146,6 @@ const Basic = ({ user, data, setData }) => {
             </div>
           </form>
         </div>
-      </div>
-    </div>
   );
 };
 export default Basic;

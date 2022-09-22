@@ -1,9 +1,5 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-.basic {
+
+/* .basic {
   display: flex;
 }
 
@@ -55,7 +51,7 @@ h4 {
   /* padding: 1%; */
   /* border: 1px solid bisque; */
 
-  margin-left: 0;
+  /* margin-left: 0;
   padding: 1%;
   padding-left: 0;
   margin: 0;
@@ -109,4 +105,4 @@ h4 {
   border-radius: 0px;
 
   background: #e1f9f4;
-}
+} */ 
