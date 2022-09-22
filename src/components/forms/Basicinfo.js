@@ -4,43 +4,27 @@ import "./Basicinfo.css";
 import { Link, useNavigate } from "react-router-dom";
 
 import Page from "../LandingPage/landingPage";
-const Basic = ({ user, data, setData }) => {
-  const [loan, setLoan] = useState("");
-  const [Price, setPrice] = useState("");
-  const [Type, setType] = useState("");
+const Basic = (props) => {
   const navigate = useNavigate();
+  const [basicInfo, setBasicInfo] = useState({});
 
   const handleSubmit = async (e) => {
-    // e.preventDefault();
-    // console.log("data")
-    // console.log(e.target.elements.loan.value)
-    // console.log(e.target.elements.Type.value)
-    // console.log(e.target.elements.Price.value);
     try {
+      debugger;
       const PPID = parseInt(Math.random() * 10000);
       const Views = parseInt(Math.random() * 10);
       const Duration = parseInt(Math.random() * 100);
-      // const day=round(Durtion/2)
       var ppi = PPID.toString();
       ppi = "PPID" + ppi;
-      setData({
-        ...data,
-        Property: e.target.elements.Type.value,
-        PPID: ppi,
-        Views: Views,
-        Duration: Duration
+      setBasicInfo({
+        property: e.target.cars.value,
+        price: e.target.price.value
       });
-      navigate("/PropertyDetails");
+      props.setData(basicInfo);
+      props.setDetails();
     } catch (error) {
       alert("error");
     }
-
-    // const data = {
-    //   email:e.target.elements.email.value,
-    //   // password:e.target.elements.password.value,
-    //   // UserID:parseInt(Math.random()*10000)
-    // }
-    // console.log(data)
   };
 
   return (
@@ -56,8 +40,10 @@ const Basic = ({ user, data, setData }) => {
                 name="cars"
                 id="Type"
                 required
-                value={Type}
-                onChange={(e) => setType(e.target.value)}
+                value={props.data ? props.data.property : basicInfo.property}
+                onChange={(e) =>
+                  setBasicInfo({ ...basicInfo, property: e.target.value })
+                }
               >
                 <option value="" disabled selected hidden>
                   Select Property type
@@ -66,19 +52,16 @@ const Basic = ({ user, data, setData }) => {
                 <option value="House">House</option>
                 <option value="Plot">Plot</option>
               </select>
-              {/* <input
-                  type="text"
-                  id="name"
-                  placeholder="select propery type"
-                  className="input"
-                /> */}
 
               <h4>Price</h4>
               <input
                 type="text"
+                name="price"
                 id="Price"
-                value={Price}
-                onChange={(e) => setPrice(e.target.value)}
+                value={props.data ? props.data.property : basicInfo.property}
+                onChange={(e) =>
+                  setBasicInfo({ ...basicInfo, price: e.target.value })
+                }
                 placeholder="Example: 10000"
                 className="input"
               />
@@ -119,8 +102,8 @@ const Basic = ({ user, data, setData }) => {
               <input
                 type="text"
                 id="loan"
-                value={loan}
-                onChange={(e) => setLoan(e.target.value)}
+                // value={loan}
+                // onChange={(e) => setLoan(e.target.value)}
                 placeholder="name"
                 className="input"
               />
