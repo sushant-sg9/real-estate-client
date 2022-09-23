@@ -52,9 +52,8 @@
 }
 
 .user-header{
-    border-bottom: 1px solid #d5f8f1;
+    border-bottom: 3px solid #d5f8f1;
     color:  #AAAAAA;
-
     height: 100px;
     display: flex;
     align-items: center;
