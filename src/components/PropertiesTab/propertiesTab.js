@@ -9,7 +9,10 @@ import PropertyInput from "../forms/PropertyDetails";
 import General from "../forms/GeneralInfo";
 import Location from "../forms/Location";
 function PropertiesTab(props) {
-  const [data, setDataValue] = useState([]);
+  const [basicData, setBasicData] = useState({});
+  const [detailsData, setDetailsData] = useState({});
+  const [generalData, setGeneralData] = useState({});
+  const [locationData, setLocationData] = useState({});
   const [properties, setProperties] = useState({
     basic: true,
     details: false,
@@ -49,9 +52,17 @@ function PropertiesTab(props) {
     });
   }
 
-  function setData(value) {
-    debugger;
-    setDataValue(value);
+  function setBasicDataFun(value) {
+    setBasicData(value);
+  }
+  function setDetailsDataFun(value) {
+    setDetailsData(value);
+  }
+  function setGeneralDataFun(value) {
+    setGeneralData(value);
+  }
+  function setLocationDataFun(value) {
+    setLocationData(value);
   }
   return (
     <>
@@ -102,26 +113,37 @@ function PropertiesTab(props) {
         </div>
         <div>
           {properties.basic && (
-            <Basic setDetails={setDetails} setData={setData} data={data} />
+            <Basic
+              setDetails={setDetails}
+              setBasicDataFun={setBasicDataFun}
+              basicData={basicData}
+            />
           )}
           {properties.details && (
             <PropertyInput
               setBasic={setBasic}
               setGeneral={setGeneral}
-              setData={setData}
-              data={data}
+              setDetailsDataFun={setDetailsDataFun}
+              detailsData={detailsData}
             />
           )}
           {properties.general && (
             <General
               setDetails={setDetails}
               setLocation={setLocation}
-              setData={setData}
-              data={data}
+              setGeneralDataFun={setGeneralDataFun}
+              generalData={generalData}
             />
           )}
           {properties.location && (
-            <Location setGeneral={setGeneral} setData={setData} data={data} />
+            <Location
+              setGeneral={setGeneral}
+              setLocationDataFun={setLocationDataFun}
+              locationData={locationData}
+              generalData={generalData}
+              detailsData={detailsData}
+              basicData={basicData}
+            />
           )}
         </div>
       </div>

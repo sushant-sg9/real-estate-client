@@ -1,44 +1,54 @@
 import React, { useState } from "react";
 import "./PropertyDetails.css";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
 
 const Location = (props) => {
-  const [general, setGenInfo] = useState({});
-
-  const navigate = useNavigate();
+  const [basicInfo, setBasicInfo] = useState(
+    props.locationData != {} ? props.locationData : {}
+  );
 
   const handleSubmit = async (e) => {
     debugger;
-    console.log(props.data);
-    const basicData = [
-      {
-        email: e.target.email.value,
-        locationArea: e.target.locationArea.value,
-        address: e.target.address.value,
-        latitude: e.target.latitude.value,
-        city: e.target.city.value,
-        pincode: e.target.pincode.value,
-        landmark: e.target.landmark.value,
-        longitude: e.target.longitude.value
-      }
-    ];
-    setGenInfo([basicData]);
-    const bodyData = [...props.data, ...basicData];
-    props.setData([...props.data, ...basicData]);
-    const finalObj = {};
-    for (let i = 0; i < bodyData.length; i++) {
-      Object.assign(finalObj, bodyData[i]);
+    const basicData = {
+      email: e.target.email.value,
+      locationArea: e.target.locationArea.value,
+      address: e.target.address.value,
+      latitude: e.target.latitude.value,
+      city: e.target.city.value,
+      pincode: e.target.pincode.value,
+      landmark: e.target.landmark.value,
+      longitude: e.target.longitude.value
+    };
+
+    setBasicInfo(basicData);
+    props.setLocationDataFun({ ...props.locationData, ...basicData });
+
+    const bodyData = {
+      ...props.basicData,
+      ...props.generalData,
+      ...props.detailsData,
+      ...props.locationData
+    };
+
+    try {
+      await axios
+        .post(`${process.env.REACT_APP_API_URL}/properties`, { ...bodyData })
+        .then((res) => {
+          alert("Property data created successfully");
+        });
+    } catch (err) {
+      alert("Error creating property");
     }
-    console.log(finalObj);
-    axios
-      .post(`${process.env.REACT_APP_API_URL}/properties`, finalObj)
-      .then((res) => {
-        alert("Property data created successfully");
-      })
-      .catch((e) => {
-        alert("Error creating property");
-      });
+  };
+
+  const changeDetailsData = async (e, key) => {
+    debugger;
+    const data = {};
+    data[key] = e.target.value;
+    props.locationData
+      ? setBasicInfo({ ...basicInfo, ...props.basicData, ...data })
+      : setBasicInfo({ ...data });
+    // props.setLocationDataFun({ ...basicInfo });
   };
 
   return (
@@ -55,14 +65,8 @@ const Location = (props) => {
                 placeholder="Email"
                 className="input"
                 name="email"
-                value={
-                  props.data.length && props.data[3]
-                    ? props.data[3].email
-                    : general.email
-                }
-                onChange={(e) =>
-                  setGenInfo([{ ...props.data, email: e.target.value }])
-                }
+                value={basicInfo.email ? basicInfo.email : ""}
+                onChange={(e) => changeDetailsData(e, "email")}
               />
               </div>
               <div className="space">
@@ -71,14 +75,8 @@ const Location = (props) => {
                 className="input"
                 placeholder="select Area"
                 name="locationArea"
-                value={
-                  props.data.length && props.data[3]
-                    ? props.data[3].locationArea
-                    : general.locationArea
-                }
-                onChange={(e) =>
-                  setGenInfo([{ ...props.data, locationArea: e.target.value }])
-                }
+                value={basicInfo.locationArea ? basicInfo.locationArea : ""}
+                onChange={(e) => changeDetailsData(e, "locationArea")}
               >
                 <option>Pune</option>
                 <option>Mumbai</option>
@@ -92,14 +90,8 @@ const Location = (props) => {
                 placeholder="Address"
                 className="input"
                 name="address"
-                value={
-                  props.data.length && props.data[3]
-                    ? props.data[3].address
-                    : general.address
-                }
-                onChange={(e) =>
-                  setGenInfo([{ ...props.data, address: e.target.value }])
-                }
+                value={basicInfo.address ? basicInfo.address : ""}
+                onChange={(e) => changeDetailsData(e, "address")}
               />
               </div>
               <div className="space input-space">
@@ -109,14 +101,8 @@ const Location = (props) => {
                 placeholder="Latitude"
                 className="input"
                 name="latitude"
-                value={
-                  props.data.length && props.data[3]
-                    ? props.data[3].latitude
-                    : general.latitude
-                }
-                onChange={(e) =>
-                  setGenInfo([{ ...props.data, latitude: e.target.value }])
-                }
+                value={basicInfo.latitude ? basicInfo.latitude : ""}
+                onChange={(e) => changeDetailsData(e, "latitude")}
               />
             </div>
             </div>
@@ -128,14 +114,8 @@ const Location = (props) => {
                 className="input"
                 placeholder="select City"
                 name="city"
-                value={
-                  props.data.length && props.data[3]
-                    ? props.data[3].city
-                    : general.city
-                }
-                onChange={(e) =>
-                  setGenInfo([{ ...props.data, city: e.target.value }])
-                }
+                value={basicInfo.city ? basicInfo.city : ""}
+                onChange={(e) => changeDetailsData(e, "city")}
               >
                 <option>Pune</option>
                 <option>Mumbai</option>
@@ -148,14 +128,8 @@ const Location = (props) => {
                 className="input"
                 placeholder="please select pincode"
                 name="pincode"
-                value={
-                  props.data.length && props.data[3]
-                    ? props.data[3].pincode
-                    : general.pincode
-                }
-                onChange={(e) =>
-                  setGenInfo([{ ...props.data, pincode: e.target.value }])
-                }
+                value={basicInfo.pincode ? basicInfo.pincode : ""}
+                onChange={(e) => changeDetailsData(e, "pincode")}
               >
                 <option>411062</option>
                 <option>451278</option>
@@ -169,14 +143,8 @@ const Location = (props) => {
                 placeholder="Landmark"
                 className="input"
                 name="landmark"
-                value={
-                  props.data.length && props.data[3]
-                    ? props.data[3].landmark
-                    : general.landmark
-                }
-                onChange={(e) =>
-                  setGenInfo([{ ...props.data, landmark: e.target.value }])
-                }
+                value={basicInfo.landmark ? basicInfo.landmark : ""}
+                onChange={(e) => changeDetailsData(e, "landmark")}
               />
               </div>
               <div className="space input-space">
@@ -186,19 +154,13 @@ const Location = (props) => {
                 placeholder="Longitude"
                 className="input"
                 name="longitude"
-                value={
-                  props.data.length && props.data[3]
-                    ? props.data[3].longitude
-                    : general.longitude
-                }
-                onChange={(e) =>
-                  setGenInfo([{ ...props.data, longitude: e.target.value }])
-                }
+                value={basicInfo.longitude ? basicInfo.longitude : ""}
+                onChange={(e) => changeDetailsData(e, "longitude")}
               />
             </div>
             </div>
           </div>
-      
+
           <div className="button">
             <button className="btn1" onClick={props.setGeneral}>
               Previous

@@ -1,25 +1,39 @@
 import React, { useEffect, useState } from "react";
 import "./PropertyDetails.css";
 
-import { Link, useNavigate } from "react-router-dom";
 const General = (props) => {
-  const [general, setGenInfo] = useState({});
-
-  const navigate = useNavigate();
+  const [basicInfo, setBasicInfo] = useState(
+    props.generalData != {} ? props.generalData : {}
+  );
   const handleSubmit = async (e) => {
+    debugger;
     e.preventDefault();
-    const basicData = [
-      {
+
+    try {
+      const basicData = {
         ownerName: e.target.ownerName.value,
         postedBy: e.target.postedBy.value,
         featured: e.target.featured.value,
         contact: e.target.contact.value,
-        saleType: e.target.saleType.value
-      }
-    ];
-    setGenInfo([basicData]);
-    props.setData([...props.data, ...basicData]);
-    props.setLocation();
+        saleType: e.target.saleType.value,
+        ppdPackage: e.target.ppdPackage.value
+      };
+      setBasicInfo(basicData);
+      props.setGeneralDataFun({ ...props.generalData, ...basicData });
+      props.setLocation();
+    } catch (error) {
+      alert("error");
+    }
+  };
+
+  const changeDetailsData = async (e, key) => {
+    debugger;
+    const data = {};
+    data[key] = e.target.value;
+    props.generalData
+      ? setBasicInfo({ ...basicInfo, ...props.generalData, ...data })
+      : setBasicInfo({ ...data });
+    // props.setBasicDataFun({ ...basicInfo });
   };
 
   return (
@@ -34,14 +48,8 @@ const General = (props) => {
               <select
                 className="input"
                 name="ownerName"
-                value={
-                  props.data.length && props.data[2]
-                    ? props.data[2].ownerName
-                    : general.ownerName
-                }
-                onChange={(e) =>
-                  setGenInfo([{ ...props.data, ownerName: e.target.value }])
-                }
+                value={basicInfo.ownerName ? basicInfo.ownerName : ""}
+                onChange={(e) => changeDetailsData(e, "ownerName")}
               >
                 <option value="owner">owner</option>
                 <option value="saab">broker</option>
@@ -52,20 +60,12 @@ const General = (props) => {
               <select
                 className="input"
                 name="postedBy"
-                value={
-                  props.data.length && props.data[2]
-                    ? props.data[2].postedBy
-                    : general.postedBy
-                }
-                onChange={(e) =>
-                  setGenInfo([{ ...props.data, postedBy: e.target.value }])
-                }
+                value={basicInfo.postedBy ? basicInfo.postedBy : ""}
+                onChange={(e) => changeDetailsData(e, "postedBy")}
               >
-                <option value="" disabled selected hidden>
-                  posted by
-                </option>
+                <option value="">posted by</option>
                 <option value="saab">broker</option>
-                <option value="saab">owner</option>
+                <option value="owner">owner</option>
               </select>
               </div>
               <div className="space">
@@ -74,14 +74,8 @@ const General = (props) => {
                 className="input"
                 name="featured"
                 placeholder="please select"
-                value={
-                  props.data.length && props.data[2]
-                    ? props.data[2].featured
-                    : general.featured
-                }
-                onChange={(e) =>
-                  setGenInfo([{ ...props.data, featured: e.target.value }])
-                }
+                value={basicInfo.featured ? basicInfo.featured : ""}
+                onChange={(e) => changeDetailsData(e, "featured")}
               >
                 <option value="volvo">10L</option>
                 <option value="saab">15L</option>
@@ -99,14 +93,8 @@ const General = (props) => {
                 id="contact"
                 required
                 name="contact"
-                value={
-                  props.data.length && props.data[2]
-                    ? props.data[2].contact
-                    : general.contact
-                }
-                onChange={(e) =>
-                  setGenInfo([{ ...props.data, contact: e.target.value }])
-                }
+                value={basicInfo.contact ? basicInfo.contact : ""}
+                onChange={(e) => changeDetailsData(e, "contact")}
                 placeholder="enter your mobile number"
                 className="input"
               />
@@ -117,14 +105,8 @@ const General = (props) => {
                 className="input"
                 name="saleType"
                 placeholder="please select"
-                value={
-                  props.data.length && props.data[2]
-                    ? props.data[2].saleType
-                    : general.saleType
-                }
-                onChange={(e) =>
-                  setGenInfo([{ ...props.data, saleType: e.target.value }])
-                }
+                value={basicInfo.saleType ? basicInfo.saleType : ""}
+                onChange={(e) => changeDetailsData(e, "saleType")}
               >
                 <option value="volvo">Installment</option>
                 <option value="saab">Emi</option>
@@ -137,14 +119,8 @@ const General = (props) => {
                 className="input"
                 name="ppdPackage"
                 placeholder="please select"
-                value={
-                  props.data.length && props.data[2]
-                    ? props.data[2].ppdPackage
-                    : general.ppdPackage
-                }
-                onChange={(e) =>
-                  setGenInfo([{ ...props.data, ppdPackage: e.target.value }])
-                }
+                value={basicInfo.ppdPackage ? basicInfo.ppdPackage : ""}
+                onChange={(e) => changeDetailsData(e, "ppdPackage")}
               >
                 <option value="saab">3L</option>
                 <option value="fiat">4L</option>
