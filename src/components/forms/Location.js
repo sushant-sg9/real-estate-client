@@ -1,5 +1,5 @@
 import React from "react";
-import "./Location.css";
+import "./PropertyDetails.css";
 import { Link, useNavigate } from "react-router-dom";
 
 const Location = ({ user, data }) => {
@@ -72,7 +72,7 @@ const Location = ({ user, data }) => {
               <input type="text" placeholder="Longitude" className="input" />
             </div>
           </div>
-
+      
           <div className="button">
             <Link to="/General">
               <button className="btn1 ">Previous</button>

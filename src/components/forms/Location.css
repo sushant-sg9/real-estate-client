@@ -1,13 +1,14 @@
-* {
+/* * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
   .basic {
-    display: flex;
+    display: fl;
   }
   
   .form-data1 {
+
     display: flex;
     margin: 2%;
     padding: 2%;
@@ -30,6 +31,7 @@
     flex-direction: row;
     margin-right: 10%;
     width: 100%;
+    
   }
   .form-container {
     margin: 10%;
@@ -52,8 +54,7 @@
   }
   
   h4 {
-    /* padding: 1%; */
-    /* border: 1px solid bisque; */
+    
   
     margin-left: 0;
     padding: 1%;
@@ -82,10 +83,11 @@
     border-radius: 40px;
     color: white;
     width: 15vh;
-    background-color: skyblue;
+    background-color:skyblue;
     cursor: pointer;
     border: none;
     box-shadow: 2px 2px rgb(211, 211, 211);
+
   }
   
   .btn2 {
@@ -109,4 +111,4 @@
     border-radius: 0px;
   
     background: #e1f9f4;
-  }
+  } */

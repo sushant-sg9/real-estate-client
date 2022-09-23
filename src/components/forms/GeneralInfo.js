@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Generalinfo.css";
+import "./PropertyDetails.css";
 
 import { Link, useNavigate } from "react-router-dom";
 const General = (props) => {

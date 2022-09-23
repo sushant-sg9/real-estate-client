@@ -1,4 +1,4 @@
-* {
+/* * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -17,7 +17,7 @@
 
 .navbar {
   padding: 1%;
-  background-color: aliceblue;
+  background-color: black;
   width: 80%;
   margin-left: 7%;
 }
@@ -52,8 +52,7 @@
 }
 
 h4 {
-  /* padding: 1%; */
-  /* border: 1px solid bisque; */
+ 
 
   margin-left: 0;
   padding: 1%;
@@ -108,4 +107,4 @@ h4 {
   border-radius: 0px;
 
   background: #e1f9f4;
-}
+} */
