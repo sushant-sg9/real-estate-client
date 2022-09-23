@@ -59,6 +59,12 @@
     align-items: center;
 
 }
+.user-name{
+    width: 300px
+}
+.user-name:hover{
+    cursor: pointer;
+}
 .user-name .user-img{
     width: 20px;
     height: 15px;
@@ -66,8 +72,10 @@
 }
 
 .user-id{
+    width: 300px;
+
     margin-left: 20px;
-    margin-right: 75%;
+    margin-right: 65%;
 }
 .search {
     height: 100px;
@@ -118,4 +126,30 @@ text-transform: uppercase;
 .add-id{
     margin-left: 20px;
     margin-right: 75%;
+}
+
+.logout{
+    text-decoration: none;
+}
+
+.logout-dropdown{
+    position: relative;
+    left:-100px;
+    top:40px;
+    width:fit-content;
+    background-color: #4C57B6;
+    border-radius: 50px;
+    /* margin-top: 50px; */
+}
+.logout-dropdown button:hover{
+    cursor: pointer;
+}
+.logout-dropdown button{
+    background-color: #4C57B6;
+    width:100px;
+    height: 50px;
+    color: white;
+    border: none;
+    border-radius: 50px;
+
 }

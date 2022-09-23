@@ -13,11 +13,15 @@ import add from "../../images/Add_plus.png";
 import { useEffect, useState } from "react";
 import SearchBar from "../SearchBar/searchBar";
 import PropertiesTab from "../PropertiesTab/propertiesTab";
+import { Nav, NavDropdown } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import Dropdown from "react-bootstrap/Dropdown";
 function LandingPage(props) {
   const [propertyList, setpropertyList] = useState(true);
   const [name, setName] = useState("DEFAULT");
   const [id, setId] = useState("UU123");
-
+  const [showLogout, setShowLogout] = useState(false);
   const [data, setData] = useState([]);
 
   function changePropertyView() {
@@ -85,11 +89,24 @@ function LandingPage(props) {
           </ul>
         </div>
         <div className="right-panel">
-          <div className="user-header">
+          <div
+            className="user-header"
+            onMouseLeave={() => setShowLogout(false)}
+          >
             <div className="user-id">USER ID : {id}</div>
-            <div className="user-name">
-              <img src={user} className="user-img" /> {name} <img src={down} />
+            <div
+              className="user-name"
+              onClick={() => setShowLogout(!showLogout)}
+            >
+              <img src={user} className="user-img" />
+              {name}
+              <img src={down} />
             </div>
+            {showLogout && (
+              <div className="logout-dropdown">
+                <button onClick={logout}>Logout</button>
+              </div>
+            )}
           </div>
           {propertyList ? (
             <div className="search">

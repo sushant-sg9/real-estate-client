@@ -67,7 +67,10 @@ function Login() {
             <br />
             <Link to="/">
               {" "}
-              <button onClick={signin}> Sign in </button>{" "}
+              <button className="login-btn" onClick={signin}>
+                {" "}
+                Sign in{" "}
+              </button>{" "}
             </Link>
           </form>
           <div className="newuser">

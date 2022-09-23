@@ -33,7 +33,7 @@ input {
     color: rgb(3, 93, 109);
     Fill: Solid #FFFFFF
 }
-button {
+.login-btn {
     margin-top: 15px;
     margin-left: 0px;
     border: none;
