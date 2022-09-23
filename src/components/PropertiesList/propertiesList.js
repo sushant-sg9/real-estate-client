@@ -28,7 +28,7 @@ function PropertiesList(props) {
   return (
     <>
       {/* <div className="property-table"> */}
-      <table>
+      <table className="imgs">
         <tr>
           <th>PPD ID</th>
           <th>Image</th>
