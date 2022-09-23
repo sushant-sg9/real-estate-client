@@ -1,9 +1,5 @@
-import { useEffect, useState } from "react";
-import imageIcon from "../../images/image_icon.png";
-import eye from "../../images/eye.png";
-import edit from "../../images/edit.png";
+import { useState } from "react";
 import "./propertiesTab.css";
-import axios from "axios";
 import Basic from "../forms/Basicinfo";
 import PropertyInput from "../forms/PropertyDetails";
 import General from "../forms/GeneralInfo";

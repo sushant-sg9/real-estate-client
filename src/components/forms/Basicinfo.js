@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import "./PropertyDetails.css";
 // import Tab from "./src/components/Tab/Tab.js"
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Basic = (props) => {
   const [basicInfo, setBasicInfo] = useState(
-    props.basicData != {} ? props.basicData : {}
+    props.basicData !== {} ? props.basicData : {}
   );
   const handleSubmit = async (e) => {
     try {
@@ -99,7 +99,7 @@ const Basic = (props) => {
           <div className="form-container1">
             <div className="space input-space">
               <h4>Negotiable</h4>
-              <input
+              {/* <input
                 type="text"
                 id="nego"
                 name="negotiable"
@@ -107,11 +107,25 @@ const Basic = (props) => {
                 className="input"
                 value={basicInfo.negotiable ? basicInfo.negotiable : ""}
                 onChange={(e) => changeDetailsData(e, "negotiable")}
-              />
+              /> */}
+              <select
+                id="nego"
+                name="negotiable"
+                placeholder="name"
+                className="input space"
+                value={basicInfo.negotiable ? basicInfo.negotiable : ""}
+                onChange={(e) => changeDetailsData(e, "negotiable")}
+              >
+                <option value="" disabled selected hidden>
+                  Select Negotiable
+                </option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
             </div>
             <div className="space input-space">
               <h4>Ownership</h4>
-              <input
+              {/* <input
                 type="text"
                 id="own"
                 name="owner"
@@ -119,11 +133,24 @@ const Basic = (props) => {
                 className="input"
                 value={basicInfo.owner ? basicInfo.owner : ""}
                 onChange={(e) => changeDetailsData(e, "owner")}
-              />
+              /> */}
+              <select
+                id="own"
+                name="owner"
+                className="input space"
+                value={basicInfo.owner ? basicInfo.owner : ""}
+                onChange={(e) => changeDetailsData(e, "owner")}
+              >
+                <option value="" disabled selected hidden>
+                  Select Ownership
+                </option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
             </div>
             <div className="space input-space">
               <h4>Property Approved</h4>
-              <input
+              {/* <input
                 type="text"
                 id="approv"
                 name="approval"
@@ -131,11 +158,24 @@ const Basic = (props) => {
                 className="input"
                 value={basicInfo.approval ? basicInfo.approval : ""}
                 onChange={(e) => changeDetailsData(e, "approval")}
-              />
+              /> */}
+              <select
+                id="approv"
+                name="approval"
+                className="input space"
+                value={basicInfo.approval ? basicInfo.approval : ""}
+                onChange={(e) => changeDetailsData(e, "approval")}
+              >
+                <option value="" disabled selected hidden>
+                  Property Approved
+                </option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
             </div>
             <div className="space input-space">
               <h4>Bank Loan</h4>
-              <input
+              {/* <input
                 type="text"
                 id="loan"
                 name="loan"
@@ -143,7 +183,20 @@ const Basic = (props) => {
                 onChange={(e) => changeDetailsData(e, "loan")}
                 placeholder="name"
                 className="input"
-              />
+              /> */}
+              <select
+                id="loan"
+                name="loan"
+                value={basicInfo.loan ? basicInfo.loan : ""}
+                onChange={(e) => changeDetailsData(e, "loan")}
+                className="input space"
+              >
+                <option value="" disabled selected hidden>
+                  Bank Loan
+                </option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+              </select>
             </div>
           </div>
         </div>

@@ -3,7 +3,7 @@ import "./PropertyDetails.css";
 
 const PropertyInput = (props) => {
   const [detailsInfo, setDetailsInfo] = useState(
-    props.detailsData != {} ? props.detailsData : {}
+    props.detailsData !== {} ? props.detailsData : {}
   );
 
   const calulate = (len, wid) => {

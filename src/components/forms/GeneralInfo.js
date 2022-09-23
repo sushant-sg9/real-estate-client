@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./PropertyDetails.css";
 
 const General = (props) => {
   const [basicInfo, setBasicInfo] = useState(
-    props.generalData != {} ? props.generalData : {}
+    props.generalData !== {} ? props.generalData : {}
   );
   const handleSubmit = async (e) => {
     debugger;

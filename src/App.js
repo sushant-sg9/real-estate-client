@@ -2,10 +2,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LandingPage from "./components/LandingPage/landingPage";
 import Login from "./components/login/login.js";
 import Register from "./components/register/register";
-import Basic from "./components/forms/Basicinfo";
-import PropertyDetails from "./components/forms/PropertyDetails";
-import GernalInfo from "./components/forms/GeneralInfo";
-import Location from "./components/forms/Location";
 import "./App.css";
 
 function App() {

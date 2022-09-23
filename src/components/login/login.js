@@ -23,13 +23,16 @@ function Login() {
     axios
       .post(`${process.env.REACT_APP_API_URL}/login`, user)
       .then((res) => {
-        console.log(res.data);
+        if(res.data.status === true) {
         alert("Successfully Logged In");
         localStorage.setItem("token", res.data.token);
         console.log("userDta", res.data.user);
         localStorage.setItem("name", res.data.user.name);
         localStorage.setItem("id", res.data.user.id);
         navigate("/properties");
+      } else {
+        alert(res.data.message);
+      }
       })
       .catch((err) => {
         alert("Error Occured. Details are in console");

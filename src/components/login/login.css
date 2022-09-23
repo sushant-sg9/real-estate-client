@@ -79,6 +79,7 @@ h1 {
     color: #4C57B6;
     font-weight: 500;
     font-family: 'Open Sans';
+    margin-bottom: 20px;
     
 }
 
@@ -93,7 +94,7 @@ h1 {
 }
 
 .signrep {
-    margin-top:-8%;
+    margin-top:-5%;
     text-align: center;
 }
 

@@ -7,16 +7,13 @@ import view from "../../images/eye.png";
 import tarrif from "../../images/Tariff.png";
 import down from "../../images/down.png";
 import user from "../../images/User_icon.png";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import PropertiesList from "../PropertiesList/propertiesList";
 import add from "../../images/Add_plus.png";
 import { useEffect, useState } from "react";
 import SearchBar from "../SearchBar/searchBar";
 import PropertiesTab from "../PropertiesTab/propertiesTab";
-import { Nav, NavDropdown } from "react-bootstrap";
-import Button from "react-bootstrap/Button";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
-import Dropdown from "react-bootstrap/Dropdown";
+
 function LandingPage(props) {
   const [propertyList, setpropertyList] = useState(true);
   const [name, setName] = useState("DEFAULT");
@@ -43,6 +40,7 @@ function LandingPage(props) {
       setName(localStorage.getItem("name"));
       setId(localStorage.getItem("id"));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const logout = () => {
@@ -98,9 +96,9 @@ function LandingPage(props) {
               className="user-name"
               onClick={() => setShowLogout(!showLogout)}
             >
-              <img src={user} className="user-img" />
+              <img src={user} className="user-img" alt='' />
               {name}
-              <img src={down} />
+              <img src={down} alt=''/>
             </div>
             {showLogout && (
               <div className="logout-dropdown">
@@ -115,7 +113,7 @@ function LandingPage(props) {
               </div>
               <div className="add-property-btn" onClick={changePropertyView}>
                 <div className="add-property">
-                  <img src={add} />
+                  <img src={add} alt=''/>
                   Add New Property
                 </div>
               </div>

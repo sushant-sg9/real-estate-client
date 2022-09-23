@@ -4,7 +4,7 @@ import axios from "axios";
 
 const Location = (props) => {
   const [basicInfo, setBasicInfo] = useState(
-    props.locationData != {} ? props.locationData : {}
+    props.locationData !== {} ? props.locationData : {}
   );
 
   const handleSubmit = async (e) => {

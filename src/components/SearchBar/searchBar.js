@@ -21,8 +21,8 @@ function SearchBar(props) {
     <>
       <div className="search-input">
         <input type="text" id="search-bar" placeholder="Search PPD ID" />
-        <img src={line} className="line" />
-        <img src={search} className="search-icon" onClick={searchId} />
+        <img src={line} className="line" alt='' />
+        <img src={search} className="search-icon" alt='' onClick={searchId} />
       </div>
     </>
   );

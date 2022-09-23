@@ -22,7 +22,7 @@ function PropertiesList(props) {
         duration: 0
       })
       .then((res) => {
-        setStatus(status == "Unsold" ? "Sold" : "Unsold");
+        setStatus(status === "Unsold" ? "Sold" : "Unsold");
       });
   }
   return (
@@ -47,7 +47,7 @@ function PropertiesList(props) {
               <tr>
                 <td>{item.ppid}</td>
                 <td>
-                  <img src={imageIcon} />
+                  <img src={imageIcon} alt='' />
                 </td>
                 <td>{item.property}</td>
                 <td>{item.contact}</td>
@@ -63,12 +63,12 @@ function PropertiesList(props) {
                   </div>
                 </td>
                 <td>
-                  {item.status.toLowerCase() == "unsold" ? item.duration : "00"}
+                  {item.status.toLowerCase() === "unsold" ? item.duration : "00"}
                 </td>
                 <td>
-                  <img src={eye} />
+                  <img src={eye} alt='' />
                   &nbsp;&nbsp;&nbsp;&nbsp;
-                  <img src={edit} />
+                  <img src={edit} alt='' />
                 </td>
               </tr>
             </>
