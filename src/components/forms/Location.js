@@ -48,6 +48,7 @@ const Location = (props) => {
         <form action="" className="form-basic" onSubmit={handleSubmit}>
           <div className="form-data1">
             <div className="form-container">
+              <div className="space input-space">
               <h4>Email</h4>
               <input
                 type="text"
@@ -63,6 +64,8 @@ const Location = (props) => {
                   setGenInfo([{ ...props.data, email: e.target.value }])
                 }
               />
+              </div>
+              <div className="space">
               <h4>Area</h4>
               <select
                 className="input"
@@ -81,6 +84,8 @@ const Location = (props) => {
                 <option>Mumbai</option>
                 <option>Delhi</option>
               </select>
+              </div>
+              <div className="space input-space">
               <h4>Address</h4>
               <input
                 type="text"
@@ -96,6 +101,8 @@ const Location = (props) => {
                   setGenInfo([{ ...props.data, address: e.target.value }])
                 }
               />
+              </div>
+              <div className="space input-space">
               <h4>Latitude</h4>
               <input
                 type="text"
@@ -112,8 +119,10 @@ const Location = (props) => {
                 }
               />
             </div>
+            </div>
 
             <div className="form-container1">
+              <div className="space">
               <h4>City</h4>
               <select
                 className="input"
@@ -132,6 +141,8 @@ const Location = (props) => {
                 <option>Mumbai</option>
                 <option>Delhi</option>
               </select>
+              </div>
+              <div className="space">
               <h4>Pincode</h4>
               <select
                 className="input"
@@ -150,6 +161,8 @@ const Location = (props) => {
                 <option>451278</option>
                 <option>854123</option>
               </select>
+              </div>
+              <div className="space input-space">
               <h4>Landmark</h4>
               <input
                 type="text"
@@ -165,6 +178,8 @@ const Location = (props) => {
                   setGenInfo([{ ...props.data, landmark: e.target.value }])
                 }
               />
+              </div>
+              <div className="space input-space">
               <h4>Longitude</h4>
               <input
                 type="text"
@@ -180,6 +195,7 @@ const Location = (props) => {
                   setGenInfo([{ ...props.data, longitude: e.target.value }])
                 }
               />
+            </div>
             </div>
           </div>
       

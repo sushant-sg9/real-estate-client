@@ -29,6 +29,7 @@ const General = (props) => {
         <form action="" className="form-basic" onSubmit={handleSubmit}>
           <div className="form-data1">
             <div className="form-container">
+              <div className="space">
               <h4>Name</h4>
               <select
                 className="input"
@@ -45,6 +46,8 @@ const General = (props) => {
                 <option value="owner">owner</option>
                 <option value="saab">broker</option>
               </select>
+              </div>
+              <div className="space">
               <h4>Posted by</h4>
               <select
                 className="input"
@@ -64,6 +67,8 @@ const General = (props) => {
                 <option value="saab">broker</option>
                 <option value="saab">owner</option>
               </select>
+              </div>
+              <div className="space">
               <h4>Featured package</h4>
               <select
                 className="input"
@@ -83,9 +88,11 @@ const General = (props) => {
                 <option value="fiat">20L</option>
                 <option value="audi">25L</option>
               </select>
+              </div>
             </div>
 
             <div className="form-container1">
+              <div className="space input-space">
               <h4>Mobile</h4>
               <input
                 type="text"
@@ -103,6 +110,8 @@ const General = (props) => {
                 placeholder="enter your mobile number"
                 className="input"
               />
+              </div>
+              <div className="space">
               <h4>Sale type</h4>
               <select
                 className="input"
@@ -121,6 +130,8 @@ const General = (props) => {
                 <option value="saab">Emi</option>
                 <option value="fiat">single payment</option>
               </select>
+              </div>
+              <div className="space">
               <h4>PPD package</h4>
               <select
                 className="input"
@@ -139,6 +150,7 @@ const General = (props) => {
                 <option value="fiat">4L</option>
                 <option value="fiat">5L</option>
               </select>
+              </div>
             </div>
           </div>
 

@@ -51,6 +51,7 @@ const PropertyInput = (props) => {
         <form action="" className="form-basic" onSubmit={handleSubmit}>
           <div className="form-data1">
             <div className="form-container">
+              <div className="space input-space">
               <h4>Length</h4>
               <input
                 type="number"
@@ -68,6 +69,8 @@ const PropertyInput = (props) => {
                 className="input"
                 placeholder="Example: 1000"
               />
+              </div>
+              <div className="space input-space">
               <h4>Total Area</h4>
               <input
                 type="text"
@@ -89,6 +92,8 @@ const PropertyInput = (props) => {
                 placeholder="Example: 7500"
                 className="input"
               />
+              </div>
+              <div className="space">
               <h4>No of BHK</h4>
               <select
                 className="input"
@@ -107,6 +112,27 @@ const PropertyInput = (props) => {
                 <option value="fiat">2</option>
                 <option value="audi">3</option>
               </select>
+              </div>
+              <div className="space">
+              <h4>Attched</h4>
+              <select
+                className="input"
+                name="furnished"
+                value={
+                  props.data.length && props.data[1]
+                    ? props.data[1].furnished
+                    : propertyDetails.furnished
+                }
+                onChange={(e) =>
+                  setDetails([{ ...props.data, furnished: e.target.value }])
+                }
+              >
+                <option value="volvo">select Attched</option>
+                <option value="saab">Yes</option>
+                <option value="fiat">No</option>
+              </select>
+              </div>
+              <div className="space">
               <h4>Furnished</h4>
               <select
                 className="input"
@@ -124,6 +150,8 @@ const PropertyInput = (props) => {
                 <option value="saab">Yes</option>
                 <option value="fiat">No</option>
               </select>
+              </div>
+              <div className="space">
               <h4>Lift</h4>
               <select
                 className="input"
@@ -137,10 +165,12 @@ const PropertyInput = (props) => {
                   setDetails([{ ...props.data, lift: e.target.value }])
                 }
               >
-                <option value="volvo">select Furnished</option>
+                <option value="volvo">select Lift</option>
                 <option value="saab">Yes</option>
                 <option value="fiat">No</option>
               </select>{" "}
+              </div>
+              <div className="space">
               <h4>Facing</h4>
               <select
                 className="input"
@@ -158,9 +188,11 @@ const PropertyInput = (props) => {
                 <option value="saab">Yes</option>
                 <option value="fiat">No</option>
               </select>
+              </div>
             </div>
 
             <div className="form-container1">
+              <div className="space input-space">
               <h4>Breadth</h4>
               <input
                 type="number"
@@ -178,6 +210,8 @@ const PropertyInput = (props) => {
                 placeholder="Example: 1000"
                 className="input"
               />
+              </div>
+              <div className="space">
               <h4>Area Unit</h4>
               <select
                 className="input"
@@ -195,6 +229,8 @@ const PropertyInput = (props) => {
                 <option value="saab">Sq.m</option>
                 <option value="fiat">Sq.cms</option>
               </select>
+              </div>
+              <div className="space">
               <h4>No of Floor</h4>
               <select
                 className="input"
@@ -213,6 +249,8 @@ const PropertyInput = (props) => {
                 <option value="fiat">4</option>
                 <option value="fiat">5</option>
               </select>
+              </div>
+              <div className="space">
               <h4>Western toilet</h4>
               <select
                 className="input"
@@ -230,6 +268,8 @@ const PropertyInput = (props) => {
                 <option value="fiat">Yes</option>
                 <option value="fiat">No</option>
               </select>
+              </div>
+              <div className="space">
               <h4>Car Parking</h4>
               <select
                 className="input"
@@ -247,6 +287,8 @@ const PropertyInput = (props) => {
                 <option value="fiat">Yes</option>
                 <option value="fiat">No</option>
               </select>
+              </div>
+              <div className="space input-space">
               <h4>Electricity</h4>
               <input
                 type="text"
@@ -263,6 +305,7 @@ const PropertyInput = (props) => {
                   setDetails([{ ...props.data, electricity: e.target.value }])
                 }
               />
+              </div>
             </div>
           </div>
 

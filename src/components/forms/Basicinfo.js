@@ -31,6 +31,7 @@ const Basic = (props) => {
       <form action="" className="form-basic" onSubmit={handleSubmit}>
         <div className="form-data1">
           <div className="form-container">
+            <div className="space">
             <h4>Property type</h4>
             <select
               className="input"
@@ -51,6 +52,8 @@ const Basic = (props) => {
               <option value="House">House</option>
               <option value="Plot">Plot</option>
             </select>
+            </div>
+            <div className="space input-space">
             <h4>Price</h4>
             <input
               type="text"
@@ -63,6 +66,8 @@ const Basic = (props) => {
               placeholder="Example: 10000"
               className="input"
             />
+            </div>
+            <div className="space input-space">
             <h4>Property age</h4>
             <input
               type="text"
@@ -75,6 +80,8 @@ const Basic = (props) => {
                 setBasicInfo([{ ...props.data, age: e.target.value }])
               }
             />
+            </div>
+            <div className="space input-space">
             <h4>Property Description</h4>
             <input
               type="text"
@@ -91,8 +98,10 @@ const Basic = (props) => {
                 setBasicInfo([{ ...props.data, description: e.target.value }])
               }
             />
+            </div>
           </div>
           <div className="form-container1">
+            <div className="space input-space">
             <h4>Negotiable</h4>
             <input
               type="text"
@@ -109,6 +118,8 @@ const Basic = (props) => {
                 setBasicInfo([{ ...props.data, negotiable: e.target.value }])
               }
             />
+            </div>
+            <div className="space input-space">
             <h4>Ownership</h4>
             <input
               type="text"
@@ -121,6 +132,8 @@ const Basic = (props) => {
                 setBasicInfo([{ ...props.data, owner: e.target.value }])
               }
             />
+            </div>
+            <div className="space input-space">
             <h4>Property Approved</h4>
             <input
               type="text"
@@ -135,6 +148,8 @@ const Basic = (props) => {
                 setBasicInfo([{ ...props.data, approval: e.target.value }])
               }
             />
+            </div>
+            <div className="space input-space">
             <h4>Bank Loan</h4>
             <input
               type="text"
@@ -147,6 +162,7 @@ const Basic = (props) => {
               placeholder="name"
               className="input"
             />
+            </div>
           </div>
         </div>
         <div className="button">

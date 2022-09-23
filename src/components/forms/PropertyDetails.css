@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&family=Titillium+Web:wght@400;600&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -47,9 +49,7 @@
     padding: 1%;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
     margin-top: 5px;
-
   }
   
   h4 {
@@ -119,6 +119,12 @@
     cursor: pointer;
     color: #7D7D7D;
   }
-  input ::placeholder{
-    color:#7D7D7D; 
+  input::placeholder{
+    color: #7D7D7D;
+  }
+  .space{
+    margin-bottom: 20px;
+  }
+  .input-space{
+   margin-bottom: -10px;
   }
