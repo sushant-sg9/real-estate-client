@@ -130,6 +130,4 @@
    margin-bottom: -10px;
   }
 
-  .imgs img:hover {
-    filter: opacity(0.5) drop-shadow(0 0 0 rgb(11, 11, 231));
-  }
+  

@@ -46,3 +46,7 @@ color: #416899;
 .status-div:hover{
     cursor: pointer;
 }
+
+.imgs img:hover {
+  filter: opacity(0.5) drop-shadow(0 0 0 rgb(11, 11, 231));
+}
