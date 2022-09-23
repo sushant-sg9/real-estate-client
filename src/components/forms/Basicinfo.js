@@ -151,14 +151,12 @@ const Basic = (props) => {
           <Link to="/property">
             <button
               className="btn1"
-              style={{ borderRadius: "40px", width: "7vw" }}
             >
               Cancel
             </button>
           </Link>
           <button
             className="btn2"
-            style={{ borderRadius: "40px", width: "8vw" }}
           >
             Save & continue
           </button>
