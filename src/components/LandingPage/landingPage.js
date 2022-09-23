@@ -15,8 +15,11 @@ import SearchBar from "../SearchBar/searchBar";
 import PropertiesTab from "../PropertiesTab/propertiesTab";
 function LandingPage(props) {
   const [propertyList, setpropertyList] = useState(true);
+  const [name, setName] = useState("DEFAULT");
+  const [id, setId] = useState("UU123");
 
   const [data, setData] = useState([]);
+
   function changePropertyView() {
     setpropertyList(false);
   }
@@ -27,6 +30,24 @@ function LandingPage(props) {
   function setSearchItem(data) {
     setData(data);
   }
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      navigate("/");
+    } else {
+      setName(localStorage.getItem("name"));
+      setId(localStorage.getItem("id"));
+    }
+  }, []);
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("name");
+    localStorage.removeItem("id");
+    // navigate("/");
+    window.location.reload(false);
+  };
   return (
     <>
       <div className="main-div">
@@ -38,11 +59,6 @@ function LandingPage(props) {
               style={{ color: "#2289FF" }}
               onClick={setPropertyView}
             >
-              {/* <Link
-                to="/properties"
-                style={{ textDecoration: "none" }}
-                className="property-link"
-              > */}
               <img src={property} alt="" /> Property
               {/* </Link> */}
             </li>
@@ -70,10 +86,9 @@ function LandingPage(props) {
         </div>
         <div className="right-panel">
           <div className="user-header">
-            <div className="user-id">USER ID : 06P123</div>
+            <div className="user-id">USER ID : {id}</div>
             <div className="user-name">
-              <img src={user} className="user-img" /> User Name{" "}
-              <img src={down} />
+              <img src={user} className="user-img" /> {name} <img src={down} />
             </div>
           </div>
           {propertyList ? (

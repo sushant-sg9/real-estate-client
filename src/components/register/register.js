@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Register() {
+  const navigate = useNavigate();
+
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -24,12 +26,22 @@ function Register() {
   };
 
   const signup = (e) => {
-    debugger;
-    console.log(process.env.REACT_APP_API_URL);
     e.preventDefault();
-    axios
-      .post(`${process.env.REACT_APP_API_URL}/register`, user)
-      .then((res) => alert(res.data.message));
+    if (pass === user.password) {
+      axios
+        .post(`${process.env.REACT_APP_API_URL}/register`, user)
+        .then((res) => {
+          console.log(res.data.message.slice(0, 6));
+          if (res.data.message.slice(0, 6) === "E11000") {
+            alert("Email Already Exists");
+          } else {
+            alert(res.data.message);
+            navigate("/");
+          }
+        });
+    } else {
+      alert("Password and Confirm Password doesn't match");
+    }
   };
 
   return (
@@ -79,6 +91,15 @@ function Register() {
           <br />
           <button type="submit">Sign Up</button>
         </form>
+        <div className="newuser">
+          <div className="signrep-register">
+            Already have an Account?{" "}
+            <span className="signup">
+              {" "}
+              <a href="/login">Sign In </a>
+            </span>{" "}
+          </div>
+        </div>
       </div>
     </div>
   );
