@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import "./PropertyDetails.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Location = (props) => {
   const [basicInfo, setBasicInfo] = useState(
     props.locationData !== {} ? props.locationData : {}
   );
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     debugger;
@@ -35,6 +37,7 @@ const Location = (props) => {
         .post(`${process.env.REACT_APP_API_URL}/properties`, { ...bodyData })
         .then((res) => {
           alert("Property data created successfully");
+          navigate("/properties");
         });
     } catch (err) {
       alert("Error creating property");
@@ -59,105 +62,105 @@ const Location = (props) => {
           <div className="form-data1">
             <div className="form-container">
               <div className="space input-space">
-              <h4>Email</h4>
-              <input
-                type="text"
-                placeholder="Email"
-                className="input"
-                name="email"
-                value={basicInfo.email ? basicInfo.email : ""}
-                onChange={(e) => changeDetailsData(e, "email")}
-              />
+                <h4>Email</h4>
+                <input
+                  type="text"
+                  placeholder="Email"
+                  className="input"
+                  name="email"
+                  value={basicInfo.email ? basicInfo.email : ""}
+                  onChange={(e) => changeDetailsData(e, "email")}
+                />
               </div>
               <div className="space">
-              <h4>Area</h4>
-              <select
-                className="input"
-                placeholder="select Area"
-                name="locationArea"
-                value={basicInfo.locationArea ? basicInfo.locationArea : ""}
-                onChange={(e) => changeDetailsData(e, "locationArea")}
-              >
-                <option>Pune</option>
-                <option>Mumbai</option>
-                <option>Delhi</option>
-              </select>
+                <h4>Area</h4>
+                <select
+                  className="input"
+                  placeholder="select Area"
+                  name="locationArea"
+                  value={basicInfo.locationArea ? basicInfo.locationArea : ""}
+                  onChange={(e) => changeDetailsData(e, "locationArea")}
+                >
+                  <option>Pune</option>
+                  <option>Mumbai</option>
+                  <option>Delhi</option>
+                </select>
               </div>
               <div className="space input-space">
-              <h4>Address</h4>
-              <input
-                type="text"
-                placeholder="Address"
-                className="input"
-                name="address"
-                value={basicInfo.address ? basicInfo.address : ""}
-                onChange={(e) => changeDetailsData(e, "address")}
-              />
+                <h4>Address</h4>
+                <input
+                  type="text"
+                  placeholder="Address"
+                  className="input"
+                  name="address"
+                  value={basicInfo.address ? basicInfo.address : ""}
+                  onChange={(e) => changeDetailsData(e, "address")}
+                />
               </div>
               <div className="space input-space">
-              <h4>Latitude</h4>
-              <input
-                type="text"
-                placeholder="Latitude"
-                className="input"
-                name="latitude"
-                value={basicInfo.latitude ? basicInfo.latitude : ""}
-                onChange={(e) => changeDetailsData(e, "latitude")}
-              />
-            </div>
+                <h4>Latitude</h4>
+                <input
+                  type="text"
+                  placeholder="Latitude"
+                  className="input"
+                  name="latitude"
+                  value={basicInfo.latitude ? basicInfo.latitude : ""}
+                  onChange={(e) => changeDetailsData(e, "latitude")}
+                />
+              </div>
             </div>
 
             <div className="form-container1">
               <div className="space">
-              <h4>City</h4>
-              <select
-                className="input"
-                placeholder="select City"
-                name="city"
-                value={basicInfo.city ? basicInfo.city : ""}
-                onChange={(e) => changeDetailsData(e, "city")}
-              >
-                <option>Pune</option>
-                <option>Mumbai</option>
-                <option>Delhi</option>
-              </select>
+                <h4>City</h4>
+                <select
+                  className="input"
+                  placeholder="select City"
+                  name="city"
+                  value={basicInfo.city ? basicInfo.city : ""}
+                  onChange={(e) => changeDetailsData(e, "city")}
+                >
+                  <option>Pune</option>
+                  <option>Mumbai</option>
+                  <option>Delhi</option>
+                </select>
               </div>
               <div className="space">
-              <h4>Pincode</h4>
-              <select
-                className="input"
-                placeholder="please select pincode"
-                name="pincode"
-                value={basicInfo.pincode ? basicInfo.pincode : ""}
-                onChange={(e) => changeDetailsData(e, "pincode")}
-              >
-                <option>411062</option>
-                <option>451278</option>
-                <option>854123</option>
-              </select>
+                <h4>Pincode</h4>
+                <select
+                  className="input"
+                  placeholder="please select pincode"
+                  name="pincode"
+                  value={basicInfo.pincode ? basicInfo.pincode : ""}
+                  onChange={(e) => changeDetailsData(e, "pincode")}
+                >
+                  <option>411062</option>
+                  <option>451278</option>
+                  <option>854123</option>
+                </select>
               </div>
               <div className="space input-space">
-              <h4>Landmark</h4>
-              <input
-                type="text"
-                placeholder="Landmark"
-                className="input"
-                name="landmark"
-                value={basicInfo.landmark ? basicInfo.landmark : ""}
-                onChange={(e) => changeDetailsData(e, "landmark")}
-              />
+                <h4>Landmark</h4>
+                <input
+                  type="text"
+                  placeholder="Landmark"
+                  className="input"
+                  name="landmark"
+                  value={basicInfo.landmark ? basicInfo.landmark : ""}
+                  onChange={(e) => changeDetailsData(e, "landmark")}
+                />
               </div>
               <div className="space input-space">
-              <h4>Longitude</h4>
-              <input
-                type="text"
-                placeholder="Longitude"
-                className="input"
-                name="longitude"
-                value={basicInfo.longitude ? basicInfo.longitude : ""}
-                onChange={(e) => changeDetailsData(e, "longitude")}
-              />
-            </div>
+                <h4>Longitude</h4>
+                <input
+                  type="text"
+                  placeholder="Longitude"
+                  className="input"
+                  name="longitude"
+                  value={basicInfo.longitude ? basicInfo.longitude : ""}
+                  onChange={(e) => changeDetailsData(e, "longitude")}
+                />
+              </div>
             </div>
           </div>
 
