@@ -2,6 +2,9 @@ import "./login.css";
 import React, { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+const eye = <FontAwesomeIcon icon={faEye} />;
 
 function Login() {
   const navigate = useNavigate();
@@ -9,6 +12,11 @@ function Login() {
     email: "",
     password: ""
   });
+
+  const [passwordShown, setPasswordShown] = useState(false);
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -59,14 +67,14 @@ function Login() {
               required
             />
             <br />
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={user.password}
-              onChange={handleChange}
-              required
-            />
+            {" "}
+        <input
+          placeholder="Password"
+          name="password"
+          type={passwordShown ? "text" : "password"}
+          
+        />
+        <i onClick={togglePasswordVisiblity}>{eye}</i>{" "}
             <br />
             <Link to="/">
               {" "}
