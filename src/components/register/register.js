@@ -98,7 +98,7 @@ function Register() {
             Already have an Account?{" "}
             <span className="signup">
               {" "}
-              <a href="/login">Sign In </a>
+              <a href="/">Sign In </a>
             </span>{" "}
           </div>
         </div>

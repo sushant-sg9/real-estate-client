@@ -65,22 +65,22 @@ function LandingPage(props) {
               {/* </Link> */}
             </li>
 
-            <li>
+            <li className="list1">
               <img src={assistance} alt="" />
               Assistance
             </li>
-            <li>
+            <li className="list1">
               <img src={received} alt="" /> Received Interest
             </li>
-            <li>
+            <li className="list1">
               <img src={sent} alt="" />
               Sent Interest
             </li>
-            <li>
+            <li className="list1">
               <img src={view} alt="" />
               Property Views
             </li>
-            <li>
+            <li className="list1">
               <img src={tarrif} alt="" />
               Tariff Plan
             </li>
@@ -96,9 +96,9 @@ function LandingPage(props) {
               className="user-name"
               onClick={() => setShowLogout(!showLogout)}
             >
-              <img src={user} className="user-img" alt='' />
+              <img src={user} className="user-img" alt="" />
               {name}
-              <img src={down} alt=''/>
+              <img src={down} alt="" />
             </div>
             {showLogout && (
               <div className="logout-dropdown">
@@ -113,7 +113,7 @@ function LandingPage(props) {
               </div>
               <div className="add-property-btn" onClick={changePropertyView}>
                 <div className="add-property">
-                  <img src={add} alt=''/>
+                  <img src={add} alt="" />
                   Add New Property
                 </div>
               </div>
