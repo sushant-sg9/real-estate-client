@@ -105,7 +105,8 @@ h1 {
 .Already {
     color: black;
 }
-
-
-
-
+.eye-icon{
+    position: relative;
+    left:-40px;
+    color:#8d8b8b
+}

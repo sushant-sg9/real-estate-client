@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+const eye = <FontAwesomeIcon icon={faEye} />;
+const eyeSlash = <FontAwesomeIcon icon={faEyeSlash} />;
 function Register() {
   const navigate = useNavigate();
 
@@ -10,8 +14,15 @@ function Register() {
     email: "",
     password: ""
   });
-
+  const [passwordShown, setPasswordShown] = useState(false);
+  const [confmPassword, setConfmPassword] = useState(false);
   const [pass, setPass] = useState("");
+  const togglePasswordVisiblity = () => {
+    setPasswordShown(passwordShown ? false : true);
+  };
+  const toggleConfmPasswordVisiblity = () => {
+    setConfmPassword(confmPassword ? false : true);
+  };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -71,23 +82,41 @@ function Register() {
           <br />
 
           <input
-            type="password"
+            type={passwordShown ? "text" : "password"}
             name="password"
             placeholder="Password"
             value={user.password}
             onChange={handleChange}
             required
           />
+          {passwordShown ? (
+            <i className="eye-icon" onClick={togglePasswordVisiblity}>
+              {eye}
+            </i>
+          ) : (
+            <i className="eye-icon" onClick={togglePasswordVisiblity}>
+              {eyeSlash}
+            </i>
+          )}
           <br />
 
           <input
-            type="password"
+            type={confmPassword ? "text" : "password"}
             name="pass"
             placeholder="Confirm Password"
             value={pass}
             onChange={handleChangePass}
             required
           />
+          {confmPassword ? (
+            <i className="eye-icon" onClick={toggleConfmPasswordVisiblity}>
+              {eye}
+            </i>
+          ) : (
+            <i className="eye-icon" onClick={toggleConfmPasswordVisiblity}>
+              {eyeSlash}
+            </i>
+          )}
           <br />
           <button className="login-btn" type="submit">
             Sign Up

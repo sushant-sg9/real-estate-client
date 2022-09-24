@@ -4,8 +4,9 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 const eye = <FontAwesomeIcon icon={faEye} />;
-
+const eyeSlash = <FontAwesomeIcon icon={faEyeSlash} />;
 function Login() {
   const navigate = useNavigate();
   const [user, setUser] = useState({
@@ -31,16 +32,16 @@ function Login() {
     axios
       .post(`${process.env.REACT_APP_API_URL}/login`, user)
       .then((res) => {
-        if(res.data.status === true) {
-        alert("Successfully Logged In");
-        localStorage.setItem("token", res.data.token);
-        console.log("userDta", res.data.user);
-        localStorage.setItem("name", res.data.user.name);
-        localStorage.setItem("id", res.data.user.id);
-        navigate("/properties");
-      } else {
-        alert(res.data.message);
-      }
+        if (res.data.status === true) {
+          alert("Successfully Logged In");
+          localStorage.setItem("token", res.data.token);
+          console.log("userDta", res.data.user);
+          localStorage.setItem("name", res.data.user.name);
+          localStorage.setItem("id", res.data.user.id);
+          navigate("/properties");
+        } else {
+          alert(res.data.message);
+        }
       })
       .catch((err) => {
         alert("Error Occured. Details are in console");
@@ -66,15 +67,22 @@ function Login() {
               onChange={handleChange}
               required
             />
-            <br />
-            {" "}
-        <input
-          placeholder="Password"
-          name="password"
-          type={passwordShown ? "text" : "password"}
-          
-        />
-        <i onClick={togglePasswordVisiblity}>{eye}</i>{" "}
+            <br />{" "}
+            <input
+              placeholder="Password"
+              name="password"
+              type={passwordShown ? "text" : "password"}
+              onChange={handleChange}
+            />
+            {passwordShown ? (
+              <i className="eye-icon" onClick={togglePasswordVisiblity}>
+                {eye}
+              </i>
+            ) : (
+              <i className="eye-icon" onClick={togglePasswordVisiblity}>
+                {eyeSlash}
+              </i>
+            )}
             <br />
             <Link to="/">
               {" "}
